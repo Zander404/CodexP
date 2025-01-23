@@ -1,8 +1,19 @@
-from tkinter import *
-from tkinter import ttk
-root = Tk()
-frm = ttk.Frame(root, padding=10)
-frm.grid()
-ttk.Label(frm, text="Hello World!").grid(column=0, row=0)
-ttk.Button(frm, text="Quit", command=root.destroy).grid(column=1, row=0)
-root.mainloop()
+import customtkinter
+
+
+class App(customtkinter.CTk):
+    def __init__(self):
+        super().__init__()
+        self.geometry("400x150")
+
+        self.button = customtkinter.CTkButton(
+            self, text="my button", command=self.button_callbck)
+        
+        self.button.pack(padx=20, pady=20)
+
+    def button_callbck(self):
+        print("button clicked")
+
+
+app = App()
+app.mainloop()
